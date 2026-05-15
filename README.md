@@ -41,3 +41,13 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/salmanafridi7/Cyberthreat_project.git
+
+## Deployment
+
+The project is deployed using Render.
+
+Live URL:
+
+```text
+https://cyberthreat-project.onrender.com
+```
