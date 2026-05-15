@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Threat Details</h1>
+
+<div class="threat-box">
+    <h2>{{ threat.threat_name }}</h2>
+
+    <p><strong>Threat ID:</strong> {{ threat.id }}</p>
+
+    <p><strong>Source:</strong> {{ threat.source }}</p>
+
+    <p>
+        <strong>Category:</strong>
+        <span class="category-badge">
+            {{ threat.category.category_name }}
+        </span>
+    </p>
+
+    <p>
+        <strong>Severity:</strong>
+        <span class="severity-badge">
+            {{ threat.severity }}
+        </span>
+    </p>
+</div>
+
+<a href="/threats" class="back-link">← Back to All Threats</a>
+
+{% endblock %}

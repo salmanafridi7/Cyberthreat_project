@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero-section">
+
+    <h1>
+        "Cybersecurity is much more than an IT topic —
+        it is a business survival issue."
+    </h1>
+
+    <p>
+        Monitoring cyber threats helps organizations detect attacks,
+        protect sensitive information, and improve digital security.
+    </p>
+
+</div>
+
+
+<div class="dashboard-section">
+
+    <h1>Cyber Threat Intelligence Dashboard</h1>
+
+    <p class="page-description">
+        This dashboard displays cyber threat intelligence data loaded from
+        open CSV datasets into a Flask SQLite database.
+    </p>
+
+
+    <h2>Database Summary</h2>
+
+    <div class="summary-cards">
+
+        <div class="summary-card">
+
+            <h3>Total Threat Records</h3>
+
+            <p>{{ total_threats }}</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>High Severity Threats</h3>
+
+            <p>{{ high_severity }}</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Threat Categories</h3>
+
+            <p>{{ total_categories }}</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Data Sources</h3>
+
+            <p>{{ total_sources }}</p>
+
+        </div>
+
+    </div>
+
+
+    <h2>What can you do?</h2>
+
+    <ul class="feature-list">
+
+        <li>Browse cybersecurity threat intelligence records.</li>
+
+        <li>Search threats using threat names.</li>
+
+        <li>View detailed information for individual threats.</li>
+
+        <li>Compare linked threat categories and percentages.</li>
+
+        <li>Understand Flask, SQLite, templates, and linked tables.</li>
+
+    </ul>
+
+    <a href="/threats" class="start-button">
+        Start Exploring Threats
+    </a>
+
+</div>
+
+{% endblock %}

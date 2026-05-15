@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Threat Intelligence Comparison</h1>
+
+<p class="page-description">
+    This page analyses the linked cyber threat categories stored in the database.
+    It compares the distribution of threats and explains the purpose of each category.
+</p>
+
+<div class="summary-box">
+
+    <p>
+        <strong>Total Threat Records:</strong>
+        {{ total_threats }}
+    </p>
+
+</div>
+
+{% for category in categories %}
+
+<div class="threat-box">
+
+    <h2>{{ category.name }}</h2>
+
+    <p>
+        <strong>Total Threats:</strong>
+        {{ category.count }}
+    </p>
+
+    <p>
+        <strong>Dataset Share:</strong>
+        {{ category.percentage }}%
+    </p>
+
+    <p>
+        <strong>Description:</strong>
+        {{ category.description }}
+    </p>
+
+    <h3>Sample Threat Records</h3>
+
+    <ul>
+
+        {% for threat in category.samples %}
+
+        <li>
+            {{ threat.threat_name }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

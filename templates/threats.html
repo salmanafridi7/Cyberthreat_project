@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>All Threats</h1>
+
+<p class="page-description">
+    Search and analyse stored cyber threat intelligence records.
+</p>
+
+<form method="GET" action="/threats" class="search-form">
+    <input
+        type="text"
+        name="search"
+        placeholder="Search threat name"
+        value="{{ search or '' }}"
+    >
+
+    <button type="submit">Search</button>
+</form>
+
+<p><strong>Total records shown:</strong> {{ threats|length }}</p>
+
+{% for threat in threats %}
+    <div class="threat-box">
+        <a href="/threat/{{ threat.id }}">
+            <strong>{{ threat.threat_name }}</strong>
+        </a>
+
+        <p><strong>Source:</strong> {{ threat.source }}</p>
+
+        <p>
+            <strong>Category:</strong>
+            <span class="category-badge">
+                {{ threat.category.category_name }}
+            </span>
+        </p>
+
+        <p>
+            <strong>Severity:</strong>
+            <span class="severity-badge">
+                {{ threat.severity }}
+            </span>
+        </p>
+    </div>
+{% endfor %}
+
+{% endblock %}
